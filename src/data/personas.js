@@ -130,7 +130,7 @@ const data = [
     "nombre": "Derry",
     "apellido": "Currer",
     "email": "dcurreri@so-net.ne.jp",
-    "ed ad": "44"
+    "edad": "44"
   },
   {
     "id": "20",
