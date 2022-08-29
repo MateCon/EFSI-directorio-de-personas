@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import Link from "../components/Link.js";
 import data from "../data/personas.js"
 
 const getPersonasMayoresDeX = (edad, data) => {
@@ -22,14 +22,24 @@ const getPersonasMasChicas = (data) => {
 }
 
 export default function Estadisticas() {
-    const navigate = useNavigate()
-
     return (
         <div className="px-8 md:px-16 lg:px-32 py-8">
             <h1 className="text-3xl pb-8">Estadisticas</h1>
-            <p>Hay {getPersonasMayoresDeX(35, data)} Mayores de 35 años</p>
-            <div>Mayor persona: {getPersonasMasGrandres(data).map(p => <div key={p.id} onClick={() => navigate(`/persona/${p.id}`)}>{p.nombre}</div>)}</div>
-            <div>Menor persona: {getPersonasMasChicas(data).map(p => <div key={p.id} onClick={() => navigate(`/persona/${p.id}`)}>{p.nombre}</div>)}</div>
+            <p className="mb-4">Hay {getPersonasMayoresDeX(35, data)} Mayores de 35 años</p>
+            <div className="mb-4">Mayor persona: {getPersonasMasGrandres(data)
+                .map(p => (
+                    <Link key={p.id} href={`/persona/${p.id}`} className="inline">
+                        <div className="card inline w-fit px-2 py-0">{p.nombre} {p.apellido}</div>
+                    </Link>
+            ))}</div>
+            <div>Menor persona: {getPersonasMasChicas(data)
+                .map(p => (
+                    <Link key={p.id} href={`/persona/${p.id}`} className="inline">
+                        <div className="card inline w-fit px-2 py-0">{p.nombre} {p.apellido}</div>
+                    </Link>
+                ))
+            }
+            </div>
         </div>
     )   
 }

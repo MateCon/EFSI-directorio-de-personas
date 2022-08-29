@@ -7,7 +7,11 @@
     }
 
     .card {
-        @apply w-[200px] py-4 bg-slate-200 rounded-sm border-2 border-slate-300 border-opacity-50;
+        @apply py-4 bg-slate-200 rounded-sm border-2 border-slate-300 border-opacity-50 text-center;
+    }
+
+    .input {
+        @apply border-b border-slate-400 block my-2 w-full;
     }
 }
 
